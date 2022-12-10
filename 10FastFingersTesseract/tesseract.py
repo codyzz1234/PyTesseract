@@ -1,9 +1,10 @@
 from pyAutoSS import screenshot
 from pyAutoSS import writeTextToBox
+from pyAutoSS import screenShotVerify
+from pyAutoSS import screenshotContest
 import pytesseract
 import cv2
 import time
-
 time.sleep(1.5)
 def takeScreenshot():
     screenshot()
@@ -16,7 +17,6 @@ def readImageToText(image):
 #get grayscale image
 def get_grayscale(image):
     return cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-
 #removes noise
 def remove_noise(image):
     return cv2.medianBlur(image,5)
@@ -26,8 +26,10 @@ def thresholding(image):
 
 def main():
     while True:    
-        takeScreenshot()
-        image = cv2.imread('10Fast.png')
+        # takeScreenshot()
+        # screenShotVerify()
+        screenshotContest()
+        image = cv2.imread('ScreenshotContest.png')
         # image = get_grayscale(image)
         # image = remove_noise(image)
         # image = thresholding(image)
@@ -35,5 +37,5 @@ def main():
         print(text)
         writeTextToBox(text)
         time.sleep(.05)
-main()
+main();
     
