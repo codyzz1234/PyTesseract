@@ -34,6 +34,6 @@ def main():
         text = readImageToText(image)
         print(text)
         writeTextToBox(text)
-        time.sleep(.3)
+        time.sleep(.05)
 main()
     
