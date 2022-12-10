@@ -4,10 +4,14 @@ def screenshot():
     image.save('10Fast.png')
     
 def writeTextToBox(text):
-    for s in text:
-        if(s == ' '):
+    textWrite = ""
+    for s in range(0,len(text)):
+        if(text[s] == ' ' or s == len(text) - 1):
+            pyauto.write(textWrite)
             pyauto.press('space')
+            textWrite = ""
+            continue
         else:
-            pyauto.write(s)
+            textWrite = textWrite + text[s]
     pyauto.press('space')
             

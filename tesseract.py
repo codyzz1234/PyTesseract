@@ -1,9 +1,10 @@
 from pyAutoSS import screenshot
 from pyAutoSS import writeTextToBox
-import cv2
 import pytesseract
+import cv2
 import time
 
+time.sleep(1.5)
 def takeScreenshot():
     screenshot()
     
@@ -22,7 +23,7 @@ def remove_noise(image):
 
 def thresholding(image):
     return cv2.threshold(image,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)[1]
-    
+
 def main():
     while True:    
         takeScreenshot()
@@ -33,6 +34,6 @@ def main():
         text = readImageToText(image)
         print(text)
         writeTextToBox(text)
-        time.sleep(.1)
+        time.sleep(.3)
 main()
     
